@@ -1,0 +1,66 @@
+﻿ <Window x:Class="MovieInfo.WPF.UI.Windows.LoginWindow"
+         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+         xmlns:local="clr-namespace:MovieInfo.WPF.UI.Windows"
+         mc:Ignorable="d"
+         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+         Title="LoginWindow"
+         Height="760"
+         Width="450"
+         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+         Background="{x:Null}"
+         AllowsTransparency="True"
+         WindowStyle="None"
+         WindowStartupLocation="CenterScreen">
+
+    <materialDesign:Card UniformCornerRadius="15" Background="{DynamicResource MaterialDesignPaper}"
+                         Margin="25" materialDesign:ShadowAssist.ShadowDepth="Depth4">
+
+        <materialDesign:DialogHost CloseOnClickAway="True" x:Name="DialogHost">
+            <StackPanel >
+                <materialDesign:PopupBox HorizontalAlignment="Right" Margin="0 20 20 0"
+                                         PlacementMode="BottomAndAlignRightEdges" StaysOpen="False" Height="25">
+                    <StackPanel>
+                        <StackPanel Margin="16 10 0 6" Orientation="Horizontal" HorizontalAlignment="Center">
+                            <TextBlock VerticalAlignment="Center" Text="Dark Mode"/>
+                            <ToggleButton Cursor="Hand" ToolTip="Enable Dark Mode" Margin="12 0 8 0"
+                                      x:Name="themeToggle" IsChecked="{Binding IsDarkTheme}" Click="toggleTheme"/>
+                        </StackPanel>
+                        <Button ToolTip="Having Trouble Logging In?" Margin="0 8 0 0" Content="Help Me" Click="HelpButton"/>
+                        <Button x:Name="btn_exit" ToolTip="Close Application" Content="Exit Application" Click="exitApp"/>
+                    </StackPanel>
+                </materialDesign:PopupBox>
+
+                <Image Margin="0 60 0 5" Source="/Assets/Images/loginIcon.png" Height="100" Visibility="Visible"/>
+
+                <TextBlock Margin="0 25 0 5" HorizontalAlignment="Center" FontSize="28"
+                           FontWeight="Bold" Text="Welcome Back"/>
+
+                <TextBlock FontSize="17" FontWeight="SemiBold" HorizontalAlignment="Center" Text="Log in to your existing account"/>
+
+                <TextBox Margin="0 50 0 0" x:Name="txtUsername" Width="300" FontSize="18"
+                         materialDesign:HintAssist.Hint="Enter Username" BorderThickness="2"
+                         BorderBrush="{DynamicResource MaterialDesignDivider}"
+                         Style="{StaticResource MaterialDesignOutlinedTextBox}"/>
+
+                <PasswordBox Margin="0 20 0 0" x:Name="txtPassword" Width="300" FontSize="18"
+                             materialDesign:HintAssist.Hint="Enter Password" BorderThickness="2" 
+                             BorderBrush="{DynamicResource MaterialDesignDivider}"
+                             Style="{StaticResource MaterialDesignOutlinedPasswordBox}"/>
+
+                <Button Margin="0 20 0 0" x:Name="LoginBtn" Style="{StaticResource MaterialDesignFlatMidBgButton}"
+                        materialDesign:ShadowAssist.ShadowDepth="Depth0" Height="53" Width="300" 
+                        materialDesign:ButtonAssist.CornerRadius="10"
+                        FontSize="18" Content="LOG IN"/>
+
+                <Button Margin="0 20 0 0" x:Name="signupBtn" Style="{StaticResource MaterialDesignFlatButton}"
+                        materialDesign:ShadowAssist.ShadowDepth="Depth0"
+                        Height="53" Width="300" materialDesign:ButtonAssist.CornerRadius="10"
+                        FontSize="18" Content="Create Account"
+                        Click="CreateAccount"/>
+            </StackPanel>
+        </materialDesign:DialogHost>
+    </materialDesign:Card>
+</Window>
